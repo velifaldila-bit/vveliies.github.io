@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velif Aldila | My Profile</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+body{
+  font-family:"DM Sans",Arial,sans-serif;
+  color:#4b3540;
+  background:#fff4f8;
+  background-image:radial-gradient(#efbfd2 1.5px,transparent 1.5px);
+  background-size:18px 18px;
+}
+
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:20;
+  height:68px;
+  background:#1f1d1e;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 6%;
+  box-shadow:0 3px 12px rgba(0,0,0,.15);
+}
+
+.logo{
+  font-size:18px;
+  letter-spacing:.5px;
+}
+
+.navlinks{
+  display:flex;
+  gap:28px;
+  align-items:center;
+}
+
+.navlinks a{
+  color:#eee;
+  text-decoration:none;
+  font-size:14px;
+}
+
+.navlinks a:hover{
+  color:#f4a8c7;
+}
+
+.hero{
+  padding:28px 5% 42px;
+  background:linear-gradient(#ffdbe8,#ffc9dc);
+}
+
+.title{
+  width:max-content;
+  max-width:90%;
+  margin:0 auto 28px;
+  padding:8px 22px;
+  background:#a94176;
+  color:white;
+  font-family:Pacifico,cursive;
+  font-size:26px;
+  box-shadow:0 5px 0 rgba(120,40,85,.15);
+}
+
+.slider{
+  max-width:880px;
+  margin:auto;
+  position:relative;
+  background:#f4adc8;
+  padding:14px;
+  border:1px solid #f8d7e4;
+}
+
+.slide-window{
+  overflow:hidden;
+  background:#fff;
+  aspect-ratio:4/3;
+}
+
+.slides{
+  display:flex;
+  height:100%;
+  transition:transform .45s ease;
+}
+
+.slide{
+  min-width:100%;
+  height:100%;
+}
+
+.slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:44px;
+  height:44px;
+  border:0;
+  border-radius:50%;
+  background:rgba(45,45,45,.68);
+  color:#fff;
+  font-size:25px;
+  cursor:pointer;
+  z-index:2;
+}
+
+.prev{left:26px}
+.next{right:26px}
+
+.dots{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin-top:15px;
+}
+
+.dot{
+  width:10px;
+  height:10px;
+  border:0;
+  border-radius:50%;
+  background:#e6a6bd;
+  cursor:pointer;
+}
+
+.dot.active{
+  background:#a73e77;
+}
+
+.social{
+  max-width:880px;
+  margin:24px auto 0;
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.social a{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  text-decoration:none;
+  color:#6b4054;
+  background:#fff;
+  border:1px solid #f0bfd1;
+  padding:10px 17px;
+  border-radius:999px;
+  font-weight:600;
+  box-shadow:0 4px 12px rgba(130,60,90,.08);
+}
+
+.social img{
+  width:21px;
+  height:21px;
+}
+
+.section{
+  max-width:880px;
+  margin:0 auto;
+  padding:42px 6%;
+}
+
+.section h2{
+  text-align:center;
+  color:#9f3e73;
+  font-size:25px;
+  margin-bottom:8px;
+}
+
+.section .sub{
+  text-align:center;
+  color:#866572;
+  margin-bottom:22px;
+}
+
+
+.hobbies{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.hobby{
+  background:rgba(255,255,255,.92);
+  border:1px solid #efc4d4;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 5px 15px rgba(120,55,85,.07);
+}
+
+.hobby img{
+  width:100%;
+  height:230px;
+  object-fit:cover;
+  display:block;
+}
+
+.hobby h3{
+  text-align:center;
+  color:#563a46;
+  font-size:17px;
+  padding:15px 10px 17px;
+}
+
+.songs{
+  display:grid;
+  gap:12px;
+}
+
+.song{
+  background:rgba(255,255,255,.92);
+  border:1px solid #efc4d4;
+  border-radius:16px;
+  padding:16px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  box-shadow:0 5px 15px rgba(120,55,85,.07);
+}
+
+.song strong{
+  display:block;
+  color:#563a46;
+}
+
+.song span{
+  font-size:13px;
+  color:#927482;
+}
+
+.play{
+  text-decoration:none;
+  background:#a94176;
+  color:#fff;
+  padding:9px 14px;
+  border-radius:999px;
+  font-size:13px;
+  white-space:nowrap;
+}
+
+.footer{
+  text-align:center;
+  background:#1f1d1e;
+  color:#eee;
+  padding:24px;
+  font-size:13px;
+  margin-top:15px;
+}
+
+@media(max-width:650px){
+  .navbar{
+    height:auto;
+    min-height:62px;
+    padding:14px 5%;
+    gap:15px;
+  }
+
+  .navlinks{
+    gap:12px;
+  }
+
+  .navlinks a{
+    font-size:12px;
+  }
+
+  .title{
+    font-size:22px;
+  }
+
+  .arrow{
+    width:38px;
+    height:38px;
+  }
+
+  .prev{left:20px}
+  .next{right:20px}
+
+  .song{
+    align-items:flex-start;
+  }
+
+  .play{
+    padding:8px 11px;
+  }
+
+  .hobbies{
+    grid-template-columns:1fr;
+  }
+
+  .hobby img{
+    height:250px;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+  <div class="logo">🌸 VELIF ALDILA</div>
+
+  <div class="navlinks">
+    <a href="#home">Beranda</a>
+    <a href="#social">Sosial Media</a>
+    <a href="#hobbies">Hobi</a>
+    <a href="#spotify">Top Spotify</a>
+  </div>
+</nav>
+
+<main id="home">
+
+<section class="hero">
+
+  <div class="title">My Profile ♡</div>
+
+  <div class="slider">
+
+    <button class="arrow prev" onclick="move(-1)" aria-label="Foto sebelumnya">‹</button>
+
+    <div class="slide-window">
+      <div class="slides" id="slides">
+
+        <!-- 5 FOTO YANG SUDAH DIMASUKKAN -->
+        <div class="slide">
+          <img src="images/foto1.jpeg" alt="Foto Velif 1">
+        </div>
+
+        <div class="slide">
+          <img src="images/foto2.jpeg" alt="Foto Velif 2">
+        </div>
+
+        <div class="slide">
+          <img src="images/foto3.jpeg" alt="Foto Velif 3">
+        </div>
+
+        <div class="slide">
+          <img src="images/foto4.jpeg" alt="Foto Velif 4">
+        </div>
+
+        <div class="slide">
+          <img src="images/foto5.jpeg" alt="Foto Velif 5">
+        </div>
+
+      </div>
+    </div>
+
+    <button class="arrow next" onclick="move(1)" aria-label="Foto berikutnya">›</button>
+
+  </div>
+
+  <div class="dots" id="dots"></div>
+
+  <div class="social" id="social">
+
+    <a href="https://www.instagram.com/veliifdla_?stkn=MTA3M3NwMm9hcm43ZQ==" target="_blank">
+      <img src="https://cdn.simpleicons.org/instagram/E4405F" alt="">
+      Instagram
+    </a>
+
+    <a href="https://www.tiktok.com/@loevssunn" target="_blank">
+      <img src="https://cdn.simpleicons.org/tiktok/111111" alt="">
+      TikTok
+    </a>
+
+    <a href="https://open.spotify.com/user/31x66nm2psoo4nlrwfpmji3gdj6y" target="_blank">
+      <img src="https://cdn.simpleicons.org/spotify/1DB954" alt="">
+      Spotify
+    </a>
+
+  </div>
+
+</section>
+
+<section class="section" id="hobbies">
+
+  <h2>♡ My Hobbies</h2>
+  <p class="sub">Hal-hal yang aku suka lakukan di waktu luang ♡</p>
+
+  <div class="hobbies">
+
+    <div class="hobby">
+      <img src="images/hobby-cooking.jpeg" alt="Hobi cooking">
+      <h3>🍳 Cooking</h3>
+    </div>
+
+    <div class="hobby">
+      <img src="images/hobby-gaming.jpeg" alt="Hobi gaming">
+      <h3>🎮 Gaming</h3>
+    </div>
+
+    <div class="hobby">
+      <img src="images/hobby-watching-film.jpeg" alt="Hobi watching film">
+      <h3>🎬 Watching Film</h3>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="spotify">
+
+  <h2>🎧 Top Spotify</h2>
+  <p class="sub">Lagu yang sering aku dengarkan ♡</p>
+
+  <div class="songs">
+
+    <div class="song">
+      <div>
+        <strong>Bertaut</strong>
+        <span>Nadin Amizah</span>
+      </div>
+
+      <a class="play" target="_blank"
+         href="https://open.spotify.com/track/630DpnzdfjdVqv2yLfPbAX">
+        Spotify ↗
+      </a>
+    </div>
+
+    <div class="song">
+      <div>
+        <strong>Ini Abadi</strong>
+        <span>Perunggu</span>
+      </div>
+
+      <a class="play" target="_blank"
+         href="https://open.spotify.com/track/6v5RJuJ9yhvaXkMXMeMZBw">
+        Spotify ↗
+      </a>
+    </div>
+
+    <div class="song">
+      <div>
+        <strong>Jatuh Suka</strong>
+        <span>Tulus</span>
+      </div>
+
+      <a class="play" target="_blank"
+         href="https://open.spotify.com/track/6PqWdGIYq5xdLaa4zCZfRp">
+        Spotify ↗
+      </a>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  © 2026 Velif Aldila · Personal Website ♡
+</footer>
+
+<script>
+let current = 0;
+const total = 5;
+
+const slides = document.getElementById("slides");
+const dots = document.getElementById("dots");
+
+for(let i = 0; i < total; i++){
+
+  const d = document.createElement("button");
+
+  d.className = "dot" + (i === 0 ? " active" : "");
+
+  d.setAttribute("aria-label", "Pilih foto " + (i + 1));
+
+  d.onclick = () => go(i);
+
+  dots.appendChild(d);
+}
+
+function go(n){
+
+  current = (n + total) % total;
+
+  slides.style.transform =
+    `translateX(-${current * 100}%)`;
+
+  [...dots.children].forEach((d,i) =>
+    d.classList.toggle("active", i === current)
+  );
+}
+
+function move(n){
+  go(current + n);
+}
+
+setInterval(() => move(1), 5000);
+
+// Swipe di HP
+let startX = 0;
+
+const win = document.querySelector(".slide-window");
+
+win.addEventListener(
+  "touchstart",
+  e => startX = e.touches[0].clientX,
+  {passive:true}
+);
+
+win.addEventListener(
+  "touchend",
+  e => {
+
+    const dx =
+      e.changedTouches[0].clientX - startX;
+
+    if(Math.abs(dx) > 45){
+      move(dx < 0 ? 1 : -1);
+    }
+
+  }
+);
+</script>
+
+</body>
+</html>
